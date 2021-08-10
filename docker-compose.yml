@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  ts-maps:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    image: wmckenn1/ts-maps
+    volumes:
+      - /usr/src/app
+    container_name: ts-maps
+    ports:
+      - '7070:1234'
+    command: parcel index.html
+networks:
+  default:
+    attachable: true
